@@ -13,14 +13,6 @@ class User(models.Model):
 
 
 class TimeTable(models.Model):
-    class Days(models.TextChoices):
-        SUN = 'SUNDAY', 'SUN', 'Sunday'
-        MON = 'MONDAY', 'MON', 'Monday'
-        TUE = 'TUESDAY', 'TUE', 'Tuesday'
-        WED = 'WEDNESDAY', 'WED', 'Wednesday'
-        THU = 'THURSDAY', 'THU', 'Thursday'
-        FRI = 'FRIDAY', 'FRI', 'Friday'
-        SAT = 'SATURDAY', 'SAT', 'Saturday'
     name = models.CharField()
     createdAt = models.DateTimeField(auto_created=True)
     dueDate = models.DateField()
