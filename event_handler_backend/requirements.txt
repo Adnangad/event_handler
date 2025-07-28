@@ -5,6 +5,7 @@ dj-database-url==3.0.1
 Django==5.2.4
 dotenv==0.9.9
 graphql-core==3.2.6
+gunicorn==23.0.0
 h11==0.16.0
 idna==3.10
 libcst==1.8.2
@@ -12,7 +13,9 @@ markdown-it-py==3.0.0
 mdurl==0.1.2
 packaging==25.0
 psycopg==3.2.9
+psycopg2-binary==2.9.10
 Pygments==2.19.2
+PyJWT==2.10.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.1
 python-multipart==0.0.20

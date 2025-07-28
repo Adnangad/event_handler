@@ -19,7 +19,6 @@ def get_current_user(request: HttpRequest):
     if not token:
         return None
     try:
-        print(getenv("JWT_ALGORITHM"))
         decoded = jwt.decode(token, getenv("JWT_SECRET"), algorithms=[getenv("JWT_ALGORITHM")])
         return decoded
     except Exception as e:
@@ -63,6 +62,7 @@ class Mutation:
     @strawberry.mutation
     async def login(self, info: Info, email: str, password: str) -> ResponseType:
         try:
+            print("Logging in....")
             user_exists = await sync_to_async(lambda: User.objects.filter(email=email).exists())()
             if not user_exists:
                 return ResponseType(status="Error", message=f"No user with the email: {email} exists in the system")
