@@ -1,23 +1,14 @@
-FROM python:3.13-slim AS builder
-
-WORKDIR /app
-
-COPY requirements.txt ./
-
-RUN pip install --upgrade pip && \
-    pip install --prefix=/install -r requirements.txt
-
 FROM python:3.13-slim
 
 RUN useradd -m -r appuser && \
     mkdir /app && \
     chown -R appuser /app
 
-# Copy installed packages from builder
-COPY --from=builder /install /usr/local
-COPY --from=builder /app/requirements.txt /app/
-
 WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
 
 COPY --chown=appuser:appuser . .
 
